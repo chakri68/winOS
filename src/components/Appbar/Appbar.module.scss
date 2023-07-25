@@ -1,0 +1,85 @@
+@import "@/scss/_variables.scss";
+
+$font-size: 0.9rem;
+$background-color: #152242;
+$border-color: #313b58;
+$general-padding: 0.15rem 0.5rem;
+$general-gap: 0.25rem;
+$general-border-radius: 0.25rem;
+
+$appbar-margin: 0.35rem 0.4rem;
+
+@mixin hoverable {
+  display: inline-block;
+  &:hover {
+    background-color: lighten($background-color, 30%);
+  }
+}
+
+:export {
+  appbarHeight: $font-size;
+}
+
+.AppbarWrapper {
+  user-select: none;
+  background-color: transparent;
+  margin: $appbar-margin;
+  font-size: $font-size;
+
+  .Appbar {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .icon {
+    height: $font-size;
+  }
+}
+
+.Appbar {
+  display: grid;
+  grid-template-columns: 3rem min-content min-content auto min-content;
+  column-gap: $general-gap;
+
+  & > * {
+    border: 2px solid $border-color;
+    padding: $general-padding;
+    border-radius: $general-border-radius;
+  }
+
+  & > .logo {
+    @include hoverable;
+    display: grid;
+    place-items: center;
+  }
+
+  & > .currentApp {
+    @include hoverable;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+  }
+
+  & > .left,
+  & > .right {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+
+    & > * {
+      @include hoverable;
+      flex: 0 0 auto;
+      border-radius: $general-border-radius;
+      padding: $general-padding;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  & > .emptySpace {
+    pointer-events: none;
+    border: none;
+  }
+}
