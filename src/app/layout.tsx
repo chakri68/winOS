@@ -3,9 +3,14 @@ import Desktop from "@/components/Desktop/Desktop";
 import "@/scss/global.scss";
 // import "@/scss/normalize.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const lato = Lato({
+  weight: ["100", "400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -19,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={lato.className}>
         <Desktop>
           <Appbar />
           {children}
