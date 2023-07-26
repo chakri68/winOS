@@ -25,10 +25,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lato.className}>
-        <Desktop>
-          <Appbar />
-          {children}
-        </Desktop>
+        <Desktop
+          appbar={<Appbar />}
+          icons={[
+            { label: "About" },
+            { label: "wrihvbwruivbwuivbjiwri" },
+            { label: "3ruivb" },
+            { label: "2uibrvqwuicb3rwuibviuewr rwvquiwvbqu" },
+          ]}
+        />
       </body>
     </html>
   );
