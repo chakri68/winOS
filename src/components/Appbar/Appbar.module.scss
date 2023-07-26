@@ -1,7 +1,7 @@
 @import "@/scss/_variables.scss";
 
 $font-size: 0.9rem;
-$background-color: #152242;
+$background-color: $purple;
 $border-color: #313b58;
 $general-padding: 0.15rem 0.5rem;
 $general-gap: 0.25rem;
@@ -12,7 +12,7 @@ $appbar-margin: 0.35rem 0.4rem;
 @mixin hoverable {
   display: inline-block;
   &:hover {
-    background-color: lighten($background-color, 30%);
+    background-color: lighten($background-color, 15%);
   }
 }
 
