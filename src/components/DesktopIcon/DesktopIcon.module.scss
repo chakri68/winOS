@@ -31,6 +31,7 @@ $max-width: 8ch;
 
   &.selected > &__name {
     overflow: visible;
+    overflow-wrap: break-word;
   }
 
   & > &__icon {
@@ -47,7 +48,6 @@ $max-width: 8ch;
     font-size: 0.75rem;
     text-align: center;
     text-overflow: ellipsis;
-    overflow-wrap: break-word;
     width: 100%;
     overflow: hidden;
   }
