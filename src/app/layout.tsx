@@ -28,10 +28,16 @@ export default function RootLayout({
         <Desktop
           appbar={<Appbar />}
           icons={[
-            { label: "About" },
-            { label: "wrihvbwruivbwuivbjiwri" },
-            { label: "3ruivb" },
-            { label: "2uibrvqwuicb3rwuibviuewr rwvquiwvbqu" },
+            { label: "About", initialPosition: { x: 100, y: 100 } },
+            {
+              label: "wrihvbwruivbwuivbjiwri",
+              initialPosition: { x: 100, y: 200 },
+            },
+            { label: "3ruivb", initialPosition: { x: 100, y: 300 } },
+            {
+              label: "2uibrvqwuicb3rwuibviuewr rwvquiwvbqu",
+              initialPosition: { x: 100, y: 400 },
+            },
           ]}
         />
       </body>

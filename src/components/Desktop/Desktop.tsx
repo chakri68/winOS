@@ -1,8 +1,9 @@
 "use client";
 
-import DesktopIcon from "../DesktopIcon/DesktopIcon";
+import DesktopIcon, { DesktopIconProps } from "../DesktopIcon/DesktopIcon";
 import styles from "./Desktop.module.scss";
 import useMouseSelection from "@/hooks/useMouseSelection";
+import { useRef } from "react";
 
 export default function Desktop({
   // children,
@@ -10,10 +11,21 @@ export default function Desktop({
   appbar,
 }: {
   // children: React.ReactNode;
-  icons?: { label: string; icon?: React.ReactNode; onClick?: () => void }[];
+  icons?: Pick<
+    DesktopIconProps,
+    "label" | "icon" | "initialPosition" | "className" | "onClick"
+  >[];
   appbar?: React.ReactNode;
 }) {
-  const { containerRef, isSelecting, selectionBox } = useMouseSelection();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { isSelecting, selectionBox, selectedElements } = useMouseSelection({
+    containerRef,
+    selElQuerySel: ".selectable",
+    onSelectClassName: "selected",
+    dataAttribute: "id",
+  });
+
+  console.log(selectedElements);
 
   return (
     <div className={styles.desktop}>
@@ -32,7 +44,13 @@ export default function Desktop({
           />
         )}
         {icons?.map((props) => (
-          <DesktopIcon key={props.label} {...props} parentRef={containerRef} />
+          <DesktopIcon
+            data-id={props.label}
+            className={"selectable"}
+            key={props.label}
+            {...props}
+            parentRef={containerRef}
+          />
         ))}
       </div>
     </div>

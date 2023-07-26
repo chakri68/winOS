@@ -29,3 +29,21 @@ body {
   background: rgba($selection-active-color, $selection-opacity);
   pointer-events: none; // This makes sure the selection box doesn't block underlying elements
 }
+
+.selectable {
+  user-select: none;
+
+  &.selected {
+    border: 1px solid $selection-active-color;
+    background: rgba($selection-active-color, $selection-opacity);
+  }
+
+  &.selected:hover {
+    border: 1px solid $selection-active-color;
+    background: rgba($selection-active-color, $selection-opacity);
+  }
+
+  &.selected > &__name {
+    overflow: visible;
+  }
+}
