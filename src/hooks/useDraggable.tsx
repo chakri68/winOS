@@ -1,13 +1,16 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
-const useDraggable = (parentRef: React.RefObject<HTMLDivElement>) => {
+const useDraggable = (
+  parentRef: React.RefObject<HTMLDivElement>,
+  initialPosition: { x: number; y: number } = { x: 0, y: 0 }
+) => {
   const ref = useRef<HTMLDivElement>(null);
   const offset = useRef({ x: 0, y: 0 });
   const { left: parentLeftOffset, top: parentTopOffset } =
     parentRef.current?.getBoundingClientRect() ?? { left: 0, top: 0 };
   const [position, setPosition] = useState({
-    x: parentLeftOffset,
-    y: parentTopOffset,
+    x: initialPosition.x + parentLeftOffset,
+    y: initialPosition.y + parentTopOffset,
   });
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -61,10 +64,10 @@ const useDraggable = (parentRef: React.RefObject<HTMLDivElement>) => {
     const { left: parentLeftOffset, top: parentTopOffset } =
       parentRef.current?.getBoundingClientRect() ?? { left: 0, top: 0 };
     setPosition({
-      x: parentLeftOffset,
-      y: parentTopOffset,
+      x: initialPosition.x + parentLeftOffset,
+      y: initialPosition.y + parentTopOffset,
     });
-  }, [parentRef]);
+  }, [initialPosition.x, initialPosition.y, parentRef]);
 
   return {
     ref,
