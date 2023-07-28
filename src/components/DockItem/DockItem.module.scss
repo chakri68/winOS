@@ -1,7 +1,7 @@
 @import "@/scss/_variables.scss";
 
 $item-padding: 0.125rem 0 0.125rem 0.125rem;
-$icon-max-size: 30px;
+$icon-min-size: 25px;
 
 $gutter-width: 0.25rem;
 $icon-hover-bg: $purple;
@@ -28,8 +28,8 @@ $icon-hover-bg: $purple;
     height: 100%;
 
     & > * {
-      width: min(100%, $icon-max-size);
-      height: min(100%, $icon-max-size);
+      width: max(100%, $icon-min-size);
+      height: max(100%, $icon-min-size);
     }
   }
 }

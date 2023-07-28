@@ -19,10 +19,9 @@ export default function Dock({ dockItems }: DockProps) {
   const dockRef = useRef<HTMLDivElement>(null);
   const dockItemRefs = useRef<HTMLDivElement[]>([]);
 
-  const effectDistance = 75; // Controls the distance at which the effect starts
-  const maxScaling = 1.1; // Controls the max scale reached
-  const maxElevation = 1.9; // Controls the max margin reached
-  const transitionDuration = "0.05s"; // Controls the transition duration
+  const effectDistance = 100; // Controls the distance at which the effect starts
+  const maxScaling = 1.75; // Controls the max scale reached
+  const transitionDuration = "0.1s"; // Controls the transition duration
 
   const [entered, setEntered] = useState(false);
 
@@ -41,15 +40,8 @@ export default function Dock({ dockItems }: DockProps) {
         effectDistance,
         maxScaling
       );
-      const marginScale = getScalingFactor(
-        top + height / 2,
-        y,
-        effectDistance,
-        maxElevation
-      );
 
-      dockItemRefs.current[i].style.margin = `${100 * (scale - 1)}%`;
-      dockItemRefs.current[i].style.marginRight = `${(marginScale - 1) * 100}%`;
+      dockItemRefs.current[i].style.width = `${100 * scale}%`;
       if (
         dockItemRefs.current[i].style.transitionDuration === transitionDuration
       )
@@ -62,8 +54,7 @@ export default function Dock({ dockItems }: DockProps) {
   function handleMouseLeave() {
     setEntered(false);
     for (const dockItem of dockItemRefs.current) {
-      dockItem.style.margin = "0";
-      dockItem.style.marginRight = "0";
+      dockItem.style.width = "100%";
       dockItem.style.transitionDuration = transitionDuration;
     }
   }

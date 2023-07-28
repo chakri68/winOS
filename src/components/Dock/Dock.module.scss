@@ -30,14 +30,14 @@ $dock-margin: 0 0.5rem;
   &__items {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     height: 100%;
     overflow: visible;
     padding: 0.15rem;
 
     & > :global(.DockItem) {
-      transition-property: margin, margin-right;
+      transition-property: width, height;
       transition-timing-function: ease-out;
     }
   }
