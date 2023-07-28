@@ -1,5 +1,6 @@
 import Appbar from "@/components/Appbar/Appbar";
 import Desktop from "@/components/Desktop/Desktop";
+import Window from "@/components/Window/Window";
 import "@/scss/global.scss";
 // import "@/scss/normalize.css";
 import type { Metadata } from "next";
@@ -25,20 +26,34 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lato.className}>
-        <Desktop
-          appbar={<Appbar />}
-          icons={[
-            { label: "About", initialPosition: { x: 100, y: 100 } },
-            {
-              label: "wrihvbwruivbwuivbjiwri",
-              initialPosition: { x: 100, y: 200 },
-            },
-            { label: "3ruivb", initialPosition: { x: 100, y: 300 } },
-            {
-              label: "2uibrvqwuicb3rwuibviuewr rwvquiwvbqu",
-              initialPosition: { x: 100, y: 400 },
-            },
-          ]}
+        <Window
+          appbarProps={{}}
+          desktopProps={{
+            icons: [
+              { label: "About", initialPosition: { x: 100, y: 100 } },
+              {
+                label: "wrihvbwruivbwuivbjiwri",
+                initialPosition: { x: 100, y: 200 },
+              },
+              { label: "3ruivb", initialPosition: { x: 100, y: 300 } },
+              {
+                label: "2uibrvqwuicb3rwuibviuewr rwvquiwvbqu",
+                initialPosition: { x: 100, y: 400 },
+              },
+            ],
+          }}
+          dockProps={{
+            dockItems: [
+              { label: "About", id: "about" },
+              { label: "Projects", id: "projects" },
+              { label: "Contact", id: "contact" },
+              { label: "Resume", id: "resume" },
+              { label: "Blog", id: "blog" },
+              { label: "Github", id: "github" },
+              { label: "LinkedIn", id: "linkedin" },
+              { label: "Twitter", id: "twitter" },
+            ],
+          }}
         />
       </body>
     </html>
