@@ -16,7 +16,6 @@ const useDraggable = (
   const handleMouseMove = useCallback((e: MouseEvent) => {
     e.stopPropagation();
     if (e.movementX === 0 && e.movementY === 0) return; // Prevents unnecessary re-renders
-    console.log("MOVE");
     const x = e.clientX - offset.current.x;
     const y = e.clientY - offset.current.y;
     setPosition({ x, y });
