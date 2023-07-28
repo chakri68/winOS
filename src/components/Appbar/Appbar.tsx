@@ -1,27 +1,36 @@
+import clsx from "clsx";
 import styles from "./Appbar.module.scss";
 import { IconPeace, IconChevronDown, IconWifi } from "@tabler/icons-react";
+import { getClassNames } from "@/utils/funcs";
 
-type AppbarProps = {};
+const exportClassNames = {
+  AppbarWrapper: "AppbarWrapper",
+  Appbar: "Appbar",
+};
+
+export type AppbarProps = {};
 
 export default function Appbar(props: AppbarProps) {
+  const classNames = getClassNames(styles, exportClassNames);
+
   return (
-    <div className={styles.AppbarWrapper}>
-      <div className={styles.Appbar} id="appbar">
-        <div className={styles.logo}>
-          <IconPeace className={styles.icon} />
+    <div className={classNames.AppbarWrapper}>
+      <div className={classNames.Appbar} id="appbar">
+        <div className={classNames.logo}>
+          <IconPeace className={classNames.icon} />
         </div>
-        <div className={styles.currentApp}>Code</div>
-        <div className={styles.left}>
+        <div className={classNames.currentApp}>Code</div>
+        <div className={classNames.left}>
           <div>Apps</div>
           <div>Games</div>
           <div>
-            <IconPeace className={styles.icon} />
+            <IconPeace className={classNames.icon} />
           </div>
           <div>4</div>
           <div>5</div>
         </div>
-        <div className={styles.emptySpace}></div>
-        <div className={styles.right}>
+        <div className={classNames.emptySpace}></div>
+        <div className={classNames.right}>
           <div>
             <IconChevronDown />
           </div>
@@ -29,7 +38,7 @@ export default function Appbar(props: AppbarProps) {
             <IconWifi />
           </div>
           <div>
-            <IconPeace className={styles.icon} />
+            <IconPeace className={classNames.icon} />
           </div>
           <div>4</div>
           <div>5</div>
