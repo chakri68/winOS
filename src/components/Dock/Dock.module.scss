@@ -1,0 +1,44 @@
+@import "@/scss/_variables.scss";
+
+$dock-wrapper-radius: 0.5rem;
+$dock-wrapper-width: 45px;
+// $dock-background-color: rgba(100, 100, 100);
+$dock-background-color: lighten($pink, 20%);
+
+$dock-transparency: 0.15;
+$dock-margin: 0 0.5rem;
+
+.Dock {
+  // "floating" dock
+  // position: absolute;
+  // right: 0;
+
+  // "fixed" dock
+  margin: $dock-margin;
+  width: $dock-wrapper-width;
+  height: fit-content;
+  align-self: center;
+
+  border-radius: $dock-wrapper-radius;
+  // glassmorphism
+  background: rgba($dock-background-color, $dock-transparency);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba($dock-background-color, $dock-transparency);
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: visible;
+    padding: 0.15rem;
+
+    & > :global(.DockItem) {
+      transition-property: margin, margin-right;
+      transition-timing-function: ease-out;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "@/scss/_variables.scss";
+
+$item-padding: 0.125rem 0 0.125rem 0.125rem;
+$icon-max-size: 30px;
+
+$gutter-width: 0.25rem;
+$icon-hover-bg: $purple;
+
+.DockItem {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr $gutter-width;
+  width: 100%;
+  aspect-ratio: 1; // Important
+  object-position: right 50%;
+  padding: $item-padding;
+
+  // &:hover > &__icon {
+  //   // TODO: Add the scale up effect
+  //   background-color: rgba(darken($icon-hover-bg, 20%), 0.5);
+  //   border-radius: $general-border-radius;
+  // }
+
+  & > &__icon {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+
+    & > * {
+      width: min(100%, $icon-max-size);
+      height: min(100%, $icon-max-size);
+    }
+  }
+}
